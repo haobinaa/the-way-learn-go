@@ -1,4 +1,4 @@
-package pack1
+package core_use
 
 import "fmt"
 
@@ -48,7 +48,7 @@ func F() {
 		// 匿名函数， 需要将函数赋值给变量
 		g := func(i int) { fmt.Printf("%d ", i) }
 		g(i)
-		fmt.Printf(" - g is of type %T and has value %v\n", g, g)
+		//fmt.Printf(" - g is of type %T and has value %v\n", g, g)
 	}
 }
 

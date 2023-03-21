@@ -1,4 +1,4 @@
-package pack1
+package core_use
 
 import "fmt"
 
@@ -6,6 +6,10 @@ type struct1 struct {
 	i1  int
 	f1  float32
 	str string
+	// 非导出结构体
+	fooStruct struct {
+		fooInt int
+	}
 }
 
 func structUse() {
@@ -42,7 +46,11 @@ func structAlloc() {
 	(*pers2).lastName = "Woodward" // 这是合法的
 	fmt.Printf("The name of the person is %s %s\n", pers2.firstName, pers2.lastName)
 
-	// 结构体字面量 &
+	// 结构体字面量 &, 此时 pers3 类型是 *Person
 	pers3 := &Person{"Chris", "Woodward"}
 	fmt.Printf("The name of the person is %s %s\n", pers3.firstName, pers3.lastName)
+
+	// 简短方式， pers4 类型是值变量
+	pers4 := Person{"Chris", "Woodward"}
+	fmt.Printf("The name of the person is %s %s\n", pers4.firstName, pers4.lastName)
 }

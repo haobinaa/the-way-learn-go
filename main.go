@@ -66,12 +66,12 @@ func main() {
 	//fmt.Println(v)
 	//localVariable()
 	//printConst()
-	//pack1.Strconvrt()
-	//pack1.ErrFunc()
-	//pack1.PrintFib(10)
-	//pack1.ArrSimple()
+	//core-use.Strconvrt()
+	//core-use.ErrFunc()
+	//core-use.PrintFib(10)
+	//core-use.ArrSimple()
 	//
-	//pack2.ReturnPack2()
+	//io-use.ReturnPack2()
 
 	var a *string
 	fmt.Println(a)

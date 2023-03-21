@@ -1,4 +1,4 @@
-package pack1
+package core_use
 
 import "fmt"
 
