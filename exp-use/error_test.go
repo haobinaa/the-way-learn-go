@@ -9,3 +9,7 @@ func TestUseError(t *testing.T) {
 func TestUsePanic(t *testing.T) {
 	UsePanic()
 }
+
+func TestRecoverPanic(t *testing.T) {
+	RecoverPanic()
+}

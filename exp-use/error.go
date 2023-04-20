@@ -30,3 +30,12 @@ func UsePanic() {
 	panic("A severe error occurred: stopping the program!")
 	fmt.Println("Ending the program")
 }
+
+func RecoverPanic() {
+	defer func() {
+		if e := recover(); e != nil {
+			fmt.Printf("Panicing %s\r\n", e)
+		}
+	}()
+	UsePanic()
+}

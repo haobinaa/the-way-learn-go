@@ -45,7 +45,13 @@ func mapKeyPresent() {
 	map1["New Delhi"] = 55
 	map1["Beijing"] = 20
 	map1["Washington"] = 25
-	// 通过 isPresent 变量判断 key 是否存咋
+	/**
+	可以直接简写:
+	if _, ok := map1[key1]; ok {
+		...
+	}
+	*/
+	// 通过 isPresent 变量判断 key 是否存在
 	value, isPresent = map1["Beijing"]
 	if isPresent {
 		fmt.Printf("The value of \"Beijing\" in map1 is: %d\n", value)
