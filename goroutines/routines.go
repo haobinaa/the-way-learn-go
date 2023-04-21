@@ -1,26 +1,35 @@
 package goroutines
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // 向 channel 中发送数据： ch <- data
 func sendData(ch chan string) {
-	ch <- "Washington"
-	ch <- "Tripoli"
-	ch <- "London"
-	ch <- "Beijing"
-	ch <- "Tokyo"
+	for {
+		ch <- "Washington"
+		ch <- "Tripoli"
+		ch <- "London"
+		ch <- "Beijing"
+		ch <- "Tokyo"
+		time.Sleep(1e9)
+	}
 }
 
 // 接收 channel 中数据: data <- channel
 // 如果变量没有申明: int2 := <- channel
 // <- channel 用来单独获取通道的值
 func getData(ch chan string) {
-	var input string
-	// time.Sleep(2e9)
-	for {
-		input = <-ch
-		fmt.Printf("%s ", input)
+	//var input string
+	// 可以通过 for range 循环读取通道数据
+	for data := range ch {
+		fmt.Printf("%s ", data)
 	}
+	//for {
+	//	input = <-ch
+	//	fmt.Printf("%s ", input)
+	//}
 }
 
 // 对于同一个 chan:

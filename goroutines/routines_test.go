@@ -12,7 +12,7 @@ func TestSendChannel(t *testing.T) {
 	go sendData(ch)
 	go getData(ch)
 
-	time.Sleep(1e9)
+	time.Sleep(1e10)
 }
 
 func TestChanDeadLock(t *testing.T) {
