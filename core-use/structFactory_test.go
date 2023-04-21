@@ -37,3 +37,9 @@ func TestTypeInterface(t *testing.T) {
 func TestStructSet(t *testing.T) {
 	StructSet()
 }
+
+func TestChoose(t *testing.T) {
+	for {
+		fmt.Println(1)
+	}
+}
