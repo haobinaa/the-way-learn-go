@@ -13,9 +13,6 @@ func sendData(ch chan string) {
 		ch <- "London"
 		ch <- "Beijing"
 		ch <- "Tokyo"
-		ch <- "Tokyo"
-		ch <- "Tokyo"
-		ch <- "Tokyo"
 		time.Sleep(1e9)
 	}
 }
