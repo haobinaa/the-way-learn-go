@@ -13,3 +13,6 @@
 
 go 实现设计模式:
 - [责任链模式](./design-patterns/chain-of-responsibility/chain-of-responsibility.go)
+- [命令模式](./design-patterns/command/command.go)
+- [迭代器模式](./design-patterns/iterator/iterator.go)
+- [中介模式](./design-patterns/mediator/mediator.go)
