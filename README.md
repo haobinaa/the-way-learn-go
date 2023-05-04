@@ -18,3 +18,4 @@ go 实现设计模式:
 - [中介模式](./design-patterns/mediator/mediator.go)
 - [备忘录模式](./design-patterns/memento/memento.go)
 - [观察者模式](./design-patterns/observer/observer.go)
+- [状态模式](./design-patterns/state/state.go)
