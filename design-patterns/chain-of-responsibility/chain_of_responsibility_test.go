@@ -1,6 +1,8 @@
-package design_patterns
+package chain_of_responsibility
 
-import "testing"
+import (
+	"testing"
+)
 
 // BuildBoardingProcessorChain 构建登机流程处理链
 func BuildBoardingProcessorChain() BoardingProcessor {

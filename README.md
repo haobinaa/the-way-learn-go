@@ -12,4 +12,4 @@
 - [IO/网络 使用](./io-use)
 
 go 实现设计模式:
-- [责任链模式](./design-patterns/chain-of-responsibility.go)
+- [责任链模式](./design-patterns/chain-of-responsibility/chain-of-responsibility.go)

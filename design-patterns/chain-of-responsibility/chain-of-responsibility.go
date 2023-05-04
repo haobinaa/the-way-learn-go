@@ -1,5 +1,5 @@
 // Package design_patterns 责任链
-package design_patterns
+package chain_of_responsibility
 
 import "fmt"
 
