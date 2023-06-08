@@ -36,3 +36,11 @@ func TestBenchmark(t *testing.T) {
 	fmt.Println(" sync", testing.Benchmark(BenchmarkChannelSync).String())
 	fmt.Println("buffered", testing.Benchmark(BenchmarkChannelBuffered).String())
 }
+
+func TestSelectUse(t *testing.T) {
+	SelectUse()
+}
+
+func TestChanSelect(t *testing.T) {
+	ChanSelect()
+}
