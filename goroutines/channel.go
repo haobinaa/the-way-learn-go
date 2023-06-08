@@ -6,10 +6,10 @@ import (
 )
 
 var (
-	// 申明 channel 只接受数据, 这种 chan 无法关闭
-	send_only chan<- int
-	// 申明 channel 只发送数据
-	recv_only <-chan int
+	// 只读 chan， 只能从 chan 里面拿数据
+	readChan <-chan int
+	// 只写 chan, 只能往 chan 里面写数据
+	writeChan chan<- int
 )
 
 func sum(x, y int, c chan int) {
@@ -116,22 +116,4 @@ func ChanSelect() {
 	go suck1(ch1, ch2)
 
 	time.Sleep(1e9)
-}
-
-// TimeTickerUsage 计时器 ticker
-func TimeTickerUsage() {
-	tick := time.Tick(1e8)
-	boom := time.After(5e8)
-	for {
-		select {
-		case <-tick:
-			fmt.Println("tick.")
-		case <-boom:
-			fmt.Println("BOOM!")
-			return
-		default:
-			fmt.Println("    .")
-			time.Sleep(5e7)
-		}
-	}
 }

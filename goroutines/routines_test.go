@@ -27,10 +27,6 @@ func TestChanFilter(t *testing.T) {
 	ChanFilter()
 }
 
-func TestTimeTickerUsage(t *testing.T) {
-	TimeTickerUsage()
-}
-
 // TestBenchmark benchmark
 func TestBenchmark(t *testing.T) {
 	fmt.Println(" sync", testing.Benchmark(BenchmarkChannelSync).String())
@@ -43,4 +39,16 @@ func TestSelectUse(t *testing.T) {
 
 func TestChanSelect(t *testing.T) {
 	ChanSelect()
+}
+
+func TestTimerUsage(t *testing.T) {
+	TimerUsage()
+}
+
+func TestTimerChannelWait(t *testing.T) {
+	WaitChan()
+}
+
+func TestDelayFunction(t *testing.T) {
+	DelayFunction()
 }
