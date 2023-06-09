@@ -15,21 +15,19 @@ var (
 // NoContext 没有 context 使用全局变量来传递
 func NoContext() {
 	// 设置上下文信息
-	deadline = time.Now().Add(5 * time.Second)
+	deadline = time.Now().Add(10 * time.Second)
 	requestID = "123456"
 	// 启动一个 goroutine 来处理任务
 	go func() {
 		for {
+			if time.Now().After(deadline) {
+				fmt.Println("goroutine 1 canceled")
+			}
 			select {
-			case <-time.After(1 * time.Second):
-				// 模拟一些耗时的操作
-				fmt.Println("goroutine 1: doing some work")
 			default:
-				// 检查上下文信息，如果已经超时或被取消了，就退出循环
-				if time.Now().After(deadline) {
-					fmt.Println("goroutine 1: context canceled")
-					return
-				}
+				// 模拟一些耗时的操作
+				time.Sleep(1 * time.Second)
+				fmt.Println("goroutine 1: doing some work")
 			}
 		}
 	}()
@@ -37,15 +35,15 @@ func NoContext() {
 	// 启动另一个 goroutine 来处理任务
 	go func() {
 		for {
-			select {
-			case <-time.After(1 * time.Second):
-				// 模拟一些耗时的操作
-				fmt.Println("goroutine 2: doing some work")
-			default:
-				// 检查上下文信息，如果已经超时或被取消了，就退出循环
+			for {
 				if time.Now().After(deadline) {
-					fmt.Println("goroutine 2: context canceled")
-					return
+					fmt.Println("goroutine 2 canceled")
+				}
+				select {
+				default:
+					// 模拟一些耗时的操作
+					time.Sleep(1 * time.Second)
+					fmt.Println("goroutine 2: doing some work")
 				}
 			}
 		}
@@ -53,7 +51,7 @@ func NoContext() {
 
 	// 等待一段时间，然后取消上下文信息
 	time.Sleep(3 * time.Second)
-	fmt.Println("main: context canceled")
+	fmt.Println("main: context canceled", time.Now())
 	deadline = time.Now()
 	time.Sleep(1 * time.Second)
 }
