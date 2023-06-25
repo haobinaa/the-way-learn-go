@@ -9,6 +9,7 @@
 - [核心语法：array/流程控制/接口/map/指针/切片/结构体](./core-use)
 - [go 中异常/错误处理](./exp-use)
 - [goroutines/chan 使用](./goroutines)
+- [context CSP(Communicating Sequential Process)](./csp)
 - [IO/网络 使用](./io-use)
 
 go 实现设计模式:
