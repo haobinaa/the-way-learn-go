@@ -1,6 +1,9 @@
 package core_use
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+)
 
 // 切片是对数组一个连续片段的引用
 // 长度可在运行时修改， 0 <= len(s) <= cap(s), cap(s) 从 s[0] 到数组尾部
@@ -52,4 +55,19 @@ func makeSlice() {
 	for i := 0; i < len(slice); i++ {
 		fmt.Printf("Slice at %d is %d\n", i, slice[i])
 	}
+}
+
+func ShareMemory() {
+	path := []byte("AAAA/BBBBBBBBB")
+	sepIndex := bytes.IndexByte(path, '/')
+	//dir1 := path[:sepIndex]
+	// FullSliceExpression   y := x[start, end, capacity]
+	// 限制数组的右界， 防止 append 内存共享
+	dir1 := path[:sepIndex:sepIndex]
+	dir2 := path[sepIndex+1:]
+	fmt.Println("dir1 =>", string(dir1)) //prints: dir1 => AAAA
+	fmt.Println("dir2 =>", string(dir2)) //prints: dir2 => BBBBBBBBB
+	dir1 = append(dir1, "suffix"...)
+	fmt.Println("dir1 =>", string(dir1)) //prints: dir1 => AAAAsuffix
+	fmt.Println("dir2 =>", string(dir2)) //prints: dir2 => uffixBBBB
 }

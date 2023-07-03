@@ -44,3 +44,7 @@ func TestOrder(t *testing.T) {
 		fmt.Printf("%s ", v)
 	}
 }
+
+func TestShareMemory(t *testing.T) {
+	ShareMemory()
+}

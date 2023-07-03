@@ -39,3 +39,9 @@ func RecoverPanic() {
 	}()
 	UsePanic()
 }
+
+func DifferentErr() {
+	err1 := fmt.Errorf("user error")
+	err2 := fmt.Errorf("login error")
+	fmt.Println(errors.As(err1, err2))
+}
