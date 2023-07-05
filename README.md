@@ -10,6 +10,7 @@ code-blocks(一些特殊的语法糖/特性):
 - [接口完整性检测(静态)/动态类型断言](./code-block/interface_full_check.go)
 - [err处理模式-屏蔽过程中的错误](./code-block/mask_process_err.go)
 - [funcOptions-函数式编程解决重载场景](./code-block/func_option.go)
+- [map/reduce-控制逻辑和业务逻辑分离](./code-block/func_option.go)
 
 
 go 实现设计模式:
