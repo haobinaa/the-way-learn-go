@@ -18,9 +18,22 @@ func TestRelectionValueType(t *testing.T) {
 		b: 90.9,
 	}
 	fmt.Println("type:", reflect.TypeOf(x))
-	fmt.Println("value:", reflect.ValueOf(x).String())
+	fmt.Println("value:", reflect.ValueOf(x))
 	fmt.Println("type:", reflect.TypeOf(y))
-	fmt.Println("value:", reflect.ValueOf(y).String())
+	fmt.Println("value:", reflect.ValueOf(y))
 	fmt.Println("type:", reflect.TypeOf(s))
-	fmt.Println("value:", reflect.ValueOf(s).String())
+	fmt.Println("value:", reflect.ValueOf(s))
+}
+
+func TestFieldCheck(t *testing.T) {
+	example := Example{
+		A: 0,
+		B: "Hello World!",
+		C: false,
+	}
+
+	fieldsToCheck := []string{"A", "B", "C", "D"}
+	emptyFieldsResult := emptyFields(example, fieldsToCheck)
+
+	fmt.Printf("空字段列表：%v\n", emptyFieldsResult)
 }
