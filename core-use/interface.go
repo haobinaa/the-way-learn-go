@@ -1,6 +1,9 @@
 package core_use
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 //按照约定，只包含一个方法的）接口的名字由方法名加 er 后缀组成，例如 Printer、Reader、Writer、Logger、Converter 等等。还有一些不常用的方式（当后缀 er 不合适时），比如 Recoverable，此时接口名以 able 结尾，或者以 I 开头（像 .NET 或 Java 中那样）。
 
@@ -122,4 +125,36 @@ func EmptyInterface() {
 	default:
 		fmt.Printf("Unexpected type %T", t)
 	}
+}
+
+type MyError struct{}
+
+func (i MyError) Error() string {
+	return "MyError"
+}
+
+func Process() error {
+	var err *MyError = nil
+	return err
+}
+
+type iface struct {
+	itab, data uintptr
+}
+
+func printTypeAndV() {
+	var a interface{} = nil
+	fmt.Println(unsafe.Pointer((&a)))
+	var b interface{} = (*int)(nil)
+
+	x := 5
+	var c interface{} = (*int)(&x)
+
+	ia := *(*iface)(unsafe.Pointer(&a))
+	ib := *(*iface)(unsafe.Pointer(&b))
+	ic := *(*iface)(unsafe.Pointer(&c))
+
+	fmt.Println(ia, ib, ic)
+
+	fmt.Println(*(*int)(unsafe.Pointer(ic.data)))
 }
