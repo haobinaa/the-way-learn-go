@@ -48,3 +48,19 @@ func TestOrder(t *testing.T) {
 func TestShareMemory(t *testing.T) {
 	ShareMemory()
 }
+
+func TestAppend(t *testing.T) {
+	a := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// copy
+	//b := make([]int, len(a))
+	//copy(b, a)
+	//fmt.Println(b)
+
+	// 删除下标为 2 的元素， 可扩展至 [i, j]
+	//a = append(a[:2], a[3:]...)
+	//fmt.Println(a)
+
+	a[2] = a[len(a)-1]
+	a = a[:len(a)-1]
+	fmt.Println(a)
+}

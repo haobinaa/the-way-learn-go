@@ -71,3 +71,47 @@ func ShareMemory() {
 	fmt.Println("dir1 =>", string(dir1)) //prints: dir1 => AAAAsuffix
 	fmt.Println("dir2 =>", string(dir2)) //prints: dir2 => uffixBBBB
 }
+
+func copyInt(a, b []int) {
+	// 方式一: 直接使用 copy
+	//copy(b, a)
+	// 方式二: append
+	b = append(a[:0:0], a...)
+}
+
+func deleteInt(a []int, index int) {
+	// 方式一: append， 也可以扩展至删除一段区间的元素
+	a = append(a[:index], a[index:]...)
+	// 方式二: 截掉元素后不能保留原顺序
+	a[index] = a[len(a)-1] // 将最后一个元素移到索引i处
+	a = a[:len(a)-1]       // 截掉最后一个元素
+}
+
+// 过滤
+func filter(a []int, keep func(x int) bool) {
+	n := 0
+	for _, x := range a {
+		if keep(x) {
+			a[n] = x // 保留该元素
+			n++
+		}
+	}
+	a = a[:n]
+}
+
+// 滑动窗口
+func slidingWindow(size int, input []int) [][]int {
+	// 返回入参的切片作为第一个元素
+	if len(input) <= size {
+		return [][]int{input}
+	}
+
+	// 以所需的精确大小分配切片
+	r := make([][]int, 0, len(input)-size+1)
+
+	for i, j := 0, size; j <= len(input); i, j = i+1, j+1 {
+		r = append(r, input[i:j])
+	}
+
+	return r
+}
