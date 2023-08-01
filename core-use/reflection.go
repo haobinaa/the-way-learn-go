@@ -16,19 +16,6 @@ type S struct {
 	b float64
 }
 
-func ReflectionUse() {
-	f := &Foo{}
-	fmt.Println(f.Hello())
-	// 反射
-	foo := &Foo{}
-	ft := reflect.TypeOf(foo)
-	fv := reflect.New(ft)
-	m := fv.MethodByName("Hello")
-	if m.IsValid() {
-		fmt.Println(m.Call(nil))
-	}
-}
-
 type Example struct {
 	A int
 	B string

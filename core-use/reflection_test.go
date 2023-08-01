@@ -6,8 +6,10 @@ import (
 	"testing"
 )
 
-func TestReflectionUse(t *testing.T) {
-	ReflectionUse()
+// TestSimple 反射的基础使用
+func TestSimple(t *testing.T) {
+	var b = "hello"
+	fmt.Printf("type: %v, value: %v", reflect.TypeOf(b), reflect.ValueOf(b))
 }
 
 func TestRelectionValueType(t *testing.T) {
