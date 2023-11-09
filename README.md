@@ -13,6 +13,7 @@ code-blocks(一些特殊的语法糖/特性):
 - [map/reduce-控制逻辑和业务逻辑分离](./code-block/func_option.go)
 - [接口的动态类型和动态值](./code-block/itab_data.go)
 - [encoding/json unmarshal float64精度问题/slice、map等类型 marshal为nil问题](./code-block/json_marshal.go)
+- [实现goroutines的守护协程](./code-block/protect_goroutines.go)
 
 
 go 实现设计模式:
