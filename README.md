@@ -3,9 +3,9 @@
 学习 go 语言的一些语法特性， 常见库的用法
 
 
-### 目录
 
-code-blocks(一些特殊的语法糖/特性):
+#### 语法糖/语言特性
+
 - [slice 内存共享](./code-block/slice_share_memory.go)
 - [接口完整性检测(静态)/动态类型断言](./code-block/interface_full_check.go)
 - [err处理模式-屏蔽过程中的错误](./code-block/mask_process_err.go)
@@ -15,8 +15,12 @@ code-blocks(一些特殊的语法糖/特性):
 - [encoding/json unmarshal float64精度问题/slice、map等类型 marshal为nil问题](./code-block/json_marshal.go)
 - [实现goroutines的守护协程](./code-block/protect_goroutines.go)
 
+#### 限流实现
+- [固定窗口](./code-block/limiter/fixed_window_limiter.go)
+- [滑动窗口](./code-block/limiter/sliding_window_limiter.go)
+- [漏桶](./code-block/limiter/leaky_bucket.go)
 
-go 实现设计模式:
+#### go 实现设计模式:
 - [责任链模式](./design-patterns/chain-of-responsibility/chain-of-responsibility.go)
 - [命令模式](./design-patterns/command/command.go)
 - [迭代器模式](./design-patterns/iterator/iterator.go)
