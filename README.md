@@ -19,6 +19,7 @@
 - [固定窗口](./code-block/limiter/fixed_window_limiter.go)
 - [滑动窗口](./code-block/limiter/sliding_window_limiter.go)
 - [漏桶](./code-block/limiter/leaky_bucket.go)
+- [令牌桶](./code-block/limiter/token_bucket.go)
 
 #### go 实现设计模式:
 - [责任链模式](./design-patterns/chain-of-responsibility/chain-of-responsibility.go)
